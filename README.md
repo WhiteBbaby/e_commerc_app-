@@ -23,4 +23,4 @@ Things you may want to cover:
 
 * ...
 
-This is my new project)
+This is my new project
