@@ -38,3 +38,4 @@ group :test do
 end
 
 gem "tzinfo-data"
+gem "devise", "~> 4.9"
