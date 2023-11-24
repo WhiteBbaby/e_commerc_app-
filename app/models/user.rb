@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, length: { maximum: 150 }
-  validates :first_name, length: { maximum: 100 }
-  validates :last_name, length: { maximum: 100 }
+  validates :first_name, length: { maximum: 100 }, presence: true
+  validates :last_name, length: { maximum: 100 }, presence: true
+  def set_default_role
+    self.role ||= :user
+  end
 end
