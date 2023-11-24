@@ -8,13 +8,15 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  username: ec_db_admin 
+  password: admin
+  host: localhost
 
 development:
   <<: *default
   database: ec_app_development
-  username: ec_db_admin
-  password: admin
-  host: localhost
+
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,8 +24,5 @@ development:
 test:
   <<: *default
   database: ec_app_test
-  username: ec_db_admin
-  password: admin
-  host: localhost
 
 
