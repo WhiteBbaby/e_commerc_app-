@@ -23,5 +23,13 @@
     <strong>Image:</strong>
     <%= electronic.image %>
   </p>
-
+ <div >
+      <p><%= number_to_currency(electronic.price) %></p>
+        <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: electronic.id %>
+        <%= f.number_field :quantity, value: 1, min: 1 %>
+        <button type="button"><%=f.submit "В корзину"%> </button>
+          
+      <%end%>
+    </div>
 </div>

@@ -1,6 +1,6 @@
 class ElectronicsController < ApplicationController
   before_action :set_electronic, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: %i[index show]
   # GET /electronics
   def index
     @electronics = Electronic.all

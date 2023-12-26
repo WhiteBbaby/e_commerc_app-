@@ -1,2 +1,27 @@
 class ApplicationController < ActionController::Base
+  before_action :set_render_cart
+  before_action :initialize_cart
+  def set_render_cart
+    @render_cart = true
+  end
+
+  def initialize_cart
+    if current_user
+      @cart = current_user.cart || current_user.create_cart
+    elsif session[:cart_id] && Cart.exists?(session[:cart_id])
+      @cart = Cart.find(session[:cart_id])
+    else
+      return unless @cart.nil?
+
+      @cart = Cart.create
+      session[:cart_id] = @cart.id
+    end
+  end
+
+  protected
+
+  def user_not_authorized
+    flash[:alert] = 'Упс Ошибка'
+    redirect_to root_path
+  end
 end
