@@ -19,10 +19,10 @@
     <%= electronic.fulldescription %>
   </p>
 
-  <p>
-    <strong>Image:</strong>
-    <%= electronic.image %>
-  </p>
+<% if electronic.image.url != nil %>
+      <%= image_tag electronic.image.url %>
+  <%end%>
+
  <div >
       <p><%= number_to_currency(electronic.price) %></p>
         <%= form_with(url: cart_add_path) do |f| %>

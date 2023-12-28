@@ -1,7 +1,7 @@
 <h1> Ecommerc </h1>
 
 <hr>
-
+  <% if current_user %>
 <p> Здравствуйте <%= current_user.first_name %> </p>
 <p> Ваш email: <%= current_user.email %> </p>
 <p> Ваша фамилия: <%= current_user.last_name %> </p>
@@ -16,5 +16,8 @@
 </p>
 
 <hr>
-
+ 
 <p> <%= link_to 'Выйти', logout_path, method: :get %> </p>
+<% else %>
+      <h1>Ваш профиль еще не создан</h1>
+    <% end %>
