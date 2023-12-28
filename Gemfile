@@ -15,7 +15,7 @@ gem 'rails', '~> 7.1.1'
 
 
 gem 'bootsnap', require: false
-
+gem 'pundit'
 gem 'carrierwave'
 
 # front-end stack

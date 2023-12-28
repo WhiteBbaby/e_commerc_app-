@@ -10,5 +10,6 @@
     </p>
   <% end %>
 </div>
-
+<%if current_user&.admin?%>
 <%= link_to "New electronic", new_electronic_path %>
+ <% end %>

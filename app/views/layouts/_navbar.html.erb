@@ -1,4 +1,9 @@
          <div>
+            <%if current_user&.admin?%>
+            <h1> Я АДМИН ААААА </h1>
+            <%else%>
+            <h1> Обычный юзер </h1>
+              <% end %>
             <ul >
                 <li> <%= link_to "Профиль", root_path %></li>
                 <li><%= link_to "Товары", electronics_path %></li>
@@ -10,4 +15,5 @@
                     </li> <%= link_to "Регистрация", new_user_registration_path %></li>
                 <% end %>
             </ul>
+            
          </div>

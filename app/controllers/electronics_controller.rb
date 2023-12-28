@@ -13,16 +13,18 @@ class ElectronicsController < ApplicationController
   # GET /electronics/new
   def new
     @electronic = Electronic.new
+    authorize @electronic
   end
 
   # GET /electronics/1/edit
   def edit
+    authorize @electronic
   end
 
   # POST /electronics
   def create
     @electronic = Electronic.new(electronic_params)
-
+    authorize @electronic
     if @electronic.save
       redirect_to @electronic, notice: "Electronic was successfully created."
     else
@@ -32,6 +34,7 @@ class ElectronicsController < ApplicationController
 
   # PATCH/PUT /electronics/1
   def update
+    authorize @electronic
     if @electronic.update(electronic_params)
       redirect_to @electronic, notice: "Electronic was successfully updated.", status: :see_other
     else
@@ -41,6 +44,7 @@ class ElectronicsController < ApplicationController
 
   # DELETE /electronics/1
   def destroy
+    authorize @electronic
     @electronic.destroy!
     redirect_to electronics_url, notice: "Electronic was successfully destroyed.", status: :see_other
   end
